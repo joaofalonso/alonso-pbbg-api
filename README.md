@@ -8,4 +8,3 @@
 ### Shop Data
 - Comprar unidade
 
-# Estrango o REAM.md
