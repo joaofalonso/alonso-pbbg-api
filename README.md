@@ -8,14 +8,4 @@
 ### Shop Data
 - Comprar unidade
 
-# Front End
-
-### Not Logged
-- Tela de login
-- Index
-
-### Logged
-- Realm Detail
-- Shop
-- User Detail
 # Estrango o REAM.md
