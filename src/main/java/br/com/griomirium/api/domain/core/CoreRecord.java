@@ -1,6 +1,5 @@
-package br.com.griomirium.api.core;
+package br.com.griomirium.api.domain.core;
 
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

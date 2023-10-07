@@ -1,4 +1,4 @@
-package br.com.griomirium.api.core;
+package br.com.griomirium.api.domain.core;
 
 public record CoreBaseList(String name, int base_level, CoreElementType coreElementType, int gold, int food, double exp) {
 

@@ -1,8 +1,9 @@
-package br.com.griomirium.api.core;
+package br.com.griomirium.api.domain.core;
 
 
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -65,9 +66,15 @@ public class CoreBase {
             this.name = updateCoreBase.name();
         }
 
-        if(updateCoreBase.coreElementType() != null && updateCoreBase.coreElementType() != this.coreElementType){
-            this.coreElementType = updateCoreBase.coreElementType();
-        }
+        if(updateCoreBase.gold() != this.gold && updateCoreBase.gold() >0)
+            this.gold = updateCoreBase.gold();
+        if(updateCoreBase.food() != this.gold && updateCoreBase.food() >0)
+            this.food = updateCoreBase.food();
+        if(updateCoreBase.units() != this.units && updateCoreBase.units() >0)
+            this.units = updateCoreBase.units();
+        if(updateCoreBase.buildings() != this.buildings && updateCoreBase.buildings() >0)
+            this.buildings = updateCoreBase.buildings();
+
     }
 
     public void deactivate() {

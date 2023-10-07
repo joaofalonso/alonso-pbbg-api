@@ -1,19 +1,21 @@
 package br.com.griomirium.api.controller;
 
-import br.com.griomirium.api.core.CoreBase;
-import br.com.griomirium.api.core.CoreRepository;
-import br.com.griomirium.api.pbbg.GameLoop;
+import br.com.griomirium.api.domain.core.CoreBase;
+import br.com.griomirium.api.domain.core.CoreRepository;
+import br.com.griomirium.api.domain.pbbg.GameLoop;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/pbbg")
+@SecurityRequirement(name = "bearer-key")
 public class PBBGControler {
 
     @Autowired
@@ -21,7 +23,7 @@ public class PBBGControler {
 
     @GetMapping
     @Transactional
-    public void gameLoop(){
+    public ResponseEntity gameLoop(){
         var gameLoop = new GameLoop();
 
         List<CoreBase> coreBaseList = this.coreRepository.findAll();
@@ -31,7 +33,7 @@ public class PBBGControler {
             c.produceResources();
         }
 
-
+        return  ResponseEntity.ok().body(coreBaseList);
     }
 
 }
